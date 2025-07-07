@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>بطاقة تعريف</title>
+  <style>
+    body {
+      font-family: 'Amiri', serif;
+      background: #f8f8f8;
+      text-align: center;
+      padding: 30px;
+    }
+
+    input {
+      font-size: 18px;
+      padding: 10px;
+      width: 300px;
+      margin-bottom: 20px;
+      direction: rtl;
+    }
+
+    .id-card {
+      width: 400px;
+      height: 250px;
+      /* 
+      background-image: url(https://imgur.com/a/JQRQNiT);
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      margin: 0 auto 20px auto;
+      border: 2px solid #ccc;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .name {
+      position: absolute;
+      top: 160px; /* Adjust this to match your template */
+      right: 20px; /* Adjust this to match your template */
+      font-size: 22px;
+      font-weight: bold;
+      color: #000;
+      direction: rtl;
+    }
+
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>ادخل اسمك</h2>
+  <input type="text" id="nameInput" placeholder="اكتب اسمك" oninput="updateName()">
+
+  <div class="id-card" id="idCard">
+    <div class="name" id="nameDisplay">اسمك هنا</div>
+  </div>
+
+  <button onclick="downloadCard()">تحميل البطاقة</button>
+
+  <!-- JS: html2canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script>
+    function updateName() {
+      const name = document.getElementById("nameInput").value;
+      document.getElementById("nameDisplay").textContent = name || "اسمك هنا";
+    }
+
+    function downloadCard() {
+      html2canvas(document.getElementById("idCard")).then(canvas => {
+        const link = document.createElement("a");
+        link.download = "بطاقة_تعريف.png";
+        link.href = canvas.toDataURL();
+        link.click();
+      });
+    }
+  </script>
+
+</body>
+</html>
